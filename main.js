@@ -1,12 +1,16 @@
 'use strict';
-//contine;でループをスキップする
+//関数
+// function 関数名() {
+//     処理;
+// }
 
-for (let i = 1; i <= 10; i++) {
-    if (i === 4) {
-        continue;
-    }
-    if (i % 3 === 0) {
-        continue;
-    } 
-    console.log(i);
+function showAd() {
+    console.log('--------')
+    console.log('-- Ad --')
+    console.log('--------')
 }
+
+console.log('I am tiger98');
+showAd();
+console.log("Nice to meet you");
+showAd();
