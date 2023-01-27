@@ -8,8 +8,13 @@ console.log(array);
 array.splice(2, 0, 45, 32);
 console.log(array);
 
-//forEach((引数)関数)要素の数だけ処理を実行してくれる
+//map関数で配列を作成する
+// const updateValues = array.map((value) => {
+//     return value + 20;
+// });
 
-array.forEach((score, index) => {
-    console.log(`score: ${score}: ${index}`);
-});
+//省略記法
+//引数一つなのでかっこ省略
+//returnだけなので、{}省略
+const updateValues = array.map(value => value + 20);
+console.log(updateValues);
