@@ -1,78 +1,20 @@
 'use strict';
 
-//objectのプロパティを列挙する
-//Object.keys(object名);objectのkeyをすべて配列で取得できる
-//取得したkeyの配列をforEach()でぶん回す
+//配列、オブジェクトに変数を追加するときの挙動
+//配列に対しては配列が格納されている場所のデータを代入するので、その場所の値が変わったのが先であろうと後であろうと、その場所のデータを取得する
 
-//まずオブジェクトを用意
-const object = {
-    x: 100,
-    y: 200,
-    z: 300,
-}
+let x = [1, 2, 3];
+//ここでyに格納されるのはxのデータがある場所であり、配列自体を渡されたわけではない。
+let y = x;
+//試しに、xをyに代入した後にxの要素を変更してみる
+x[0] = 1.5;
 
-//Object.keys()でkeyを取得
-const KeysArray = Object.keys(object);
-console.log(KeysArray);
+console.log(`array(x) = ${x}`); //[1.5, 2, 3]
+console.log(`array(y) = ${y}`); //[1.5, 2, 3]となる←[1, 2, 3]とはならない
 
-//forEachで引数KeyにKeysArrayの要素を一つずつ代入していく
-//object名[key]の指定方法でvalueを指定する。
-KeysArray.forEach(Key => {
-    console.log(`key: ${Key}, value: ${object[Key]}`);
-});
+//xの配列をそのまま渡したいときは、レスト構文が使える。配列の中に配列を展開したあれ。
+y = [...x];
+x[2] = 100;
 
-//こちらは配列をValueとするオブジェクト
-const points2 = {
-    x: [60, 30, 40],
-    y: [50, 30, 20],
-    z: [10, 20, 40],
-}
-
-//配列をValueとするObjectのKeyを配列として取得
-const points2KeyArrays = Object.keys(points2);
-console.log(points2KeyArrays);
-
-//取得したKeyの配列にたいしてforEach()を適用して、オブジェクトのValueである配列を取得。
-//forEachの第二引数にはindexが入る。
-points2KeyArrays.forEach((Key, index) => {
-    console.log(`key${index}: ${points2[Key]}`);
-});
-
-
-
-
-
-//こちらはobjectを要素として持つ配列
-const points = [
-    {x: 30, y: 20},
-    {x: 10, y: 30},
-    {x: 40, y: 50},
-];
-
-//配列なので、直接forEach()が適用できる。
-points.forEach((element, index) => {
-    //ここでは、配列の要素であるオブジェクトを取り出している
-    console.log(element);
-    //さらにobject要素のKeyとValueを取り出してみる
-    //objectの要素を取り出すときにはまず、Keyを配列として取得するので、Object.keys(オブジェクト名);を使用する
-    //elementに対してObject.keys()を適用する。
-    const pointsKeysArray = Object.keys(element);
-    console.log(pointsKeysArray);
-    //取得した配列のKeyに対してforEach()を適用して、Valueを取り出す
-    pointsKeysArray.forEach(pointElement => {
-        //keyは文字列で取得されているので、[]でくくるタイプのして方法。.keyではない
-        console.log(`key${index}: ${pointElement}, Value: ${element[pointElement]}`)
-    });
-});
-
-//配列の中のオブジェクト要素の値を取り出す場合の手順
-//1. 配列.forEach(引数)で配列の要素を取り出す
-//2. 取り出した配列の要素(オブジェクト)に対して、Object.keys()を適用して、Keyを配列として取得する
-//3. 配列として取得したKeyに対してKeysArray.forEach()を適用して、objectのValueを取得する。
-
-
-//配列(forEachで変換)→オブジェクト(Object.keysで変換)→Keyの配列→要素の取り出し
-
-
-
-
+console.log(`array(x) = ${x}`);
+console.log(`array(y) = ${y}`);
