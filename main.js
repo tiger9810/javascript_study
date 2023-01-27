@@ -1,9 +1,12 @@
 'use strict';
-//for文とテンプレートリテラルで値を埋め込んで文字列とする
+//contine;でループをスキップする
 
-let hp = 100;
-
-do {
-    console.log(`${hp} HP `);
-    hp -= 15;
-} while (hp > 0);
+for (let i = 1; i <= 10; i++) {
+    if (i === 4) {
+        continue;
+    }
+    if (i % 3 === 0) {
+        continue;
+    } 
+    console.log(i);
+}
