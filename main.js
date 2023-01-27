@@ -6,16 +6,16 @@
 //引数にlet, constなどの宣言はいらない
 //テンプレートリテラルで引数を埋め込む
 
-function showAd(message = 'Ad') { //関数定義時の引数は仮引数という
-//引数を渡さなかった時の場合の値も設定できる
-    console.log('--------')
-    console.log(`-- ${message} --`)
-    console.log('--------')
+function sum1(a, b, c) {
+    console.log(a + b + c);
 }
 
-console.log('I am tiger98');
-showAd('first ad'); //関数実行時の引数は実引数という
-console.log("Nice to meet you");
-showAd('second ad');
-console.log('I wanna girl friend');
-showAd();
+sum1(1, 2, 4);
+sum1(2, 4, 5);
+
+function sum2(a, b, c) {
+    return a + b + c;
+}
+//returnを使うと、関数の処理結果を値として扱える。
+//関数の最後にreturnで値を返すと、計算で使用できる
+console.log(sum2(3, 4, 5));
