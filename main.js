@@ -8,23 +8,19 @@ const point = {
     y: 300,
 };
 
-console.log(point);
+//スプレッド構文もオブジェクトに対して使える
+const otherProps = {
+    r: 4,
+    color: 'red',
+    ...point,
+};
 
-//objectにアクセスする
-console.log(point.x);
-console.log(point['y']);
+console.log(otherProps);
 
-//プロパティに値を再代入
-//object名.キーで値を指定できる。
-point.x = 120;
-
-//要素の追加も同様
-//object名.追加したいキー = 追加したい値;でプロパティを追加できる
-point.z = 400;
-console.log(point);
-
-//要素の削除はdeleteを使用する。
-//delete object名.key;で削除できる
-delete point.x;
-
-console.log(point);
+//分割代入もオブジェクトに使える
+//分割代入とは、配列の要素、またはオブジェクトのプロパティを一つ取り出して、定数とするときに使うやつである。
+//残りのオブジェクトに対してはレスト構文で新たにobjectを作成する
+const {x, r, ...remains} = otherProps;
+console.log(x);
+console.log(r);
+console.log(remains);
