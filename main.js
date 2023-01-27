@@ -1,31 +1,30 @@
 'use strict';
 
-const price = 1200;
+// if (条件式) {
+//     trueだった時の処理;
+// } else {
+//     falseだった時の処理;
+// }
 
-//より大きい
-console.log(price > 1000);//true
+// if (条件式A) {
+//     条件式Aがtrueだった時の処理;
 
-//より小さい
-console.log(price < 1000);//false
+// } else if (条件式B){
+//     AがfalseでBがtrueだった時の処理;
 
-//以上
-console.log(price >= 1000);//true
+// } else {
+//     AもBもfalseだった時の処理
+// }
 
-//以下
-console.log(price <= 1000);//false
+//80点以上→Great,60点以上→Good,60点以下→Umm,と表示する
+//{}中かっこで囲われている部分をブロックという
+const score = 59;
 
-//等しい
-console.log(price === 1000);//false
+if (score >= 80) {
+    console.log('Great');
 
-//異なる
-console.log(price !== 1000);//true
-
-// false <- 0, null, undefined, '', false
-// true <- それ以外。
-
-console.log(Boolean(0));
-console.log(Boolean(null));
-console.log(Boolean(undefined));
-console.log(Boolean(''));
-
-console.log(Boolean(5));
+} else if (score >= 60) {
+    console.log('Good');
+} else {
+    console.log('Umm...');
+}
