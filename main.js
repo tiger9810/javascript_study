@@ -1,28 +1,30 @@
 'use strict';
 
-//配列の操作
-const array = [4, 5, 8];
-console.log(array);
+//object記法
+//キーと値を対応させて記述する。
+//keyと要素をまとめてプロパティという
+const point = {
+    x: 100, 
+    y: 300,
+};
 
-//index番号2から4つ要素を追加する場合
-array.splice(2, 0, 45, 32);
-console.log(array);
+console.log(point);
 
-//map関数は配列に何らかの処理をして新しい作成する
-//filter関数は配列の要素をチェックして、条件にあうものだけを抽出して別の配列として取得することができる
-//偶数の要素だけ抽出して新しい配列を作成する
-//引数一つの時は関数の引数のかっこ不要
-//filter(function) filterのfunctionの中の条件式でtrueになったものだけが抽出されて、新しい配列となる。
-const evenNumbers = array.filter(Number => {
-    if (Number % 2 === 0) {
-        return true;
-    } else {
-        return false;
-    }
-});
+//objectにアクセスする
+console.log(point.x);
+console.log(point['y']);
 
-//上記の条件式はtrueの時はtrueを返し、falseのときはfalseを返しているので、わざわざif文作成しなくてもよい
-//このように省略する
-const shortEvenNumbers = array.filter(Number => Number % 2 === 0);
-console.log(evenNumbers);
-console.log(shortEvenNumbers);
+//プロパティに値を再代入
+//object名.キーで値を指定できる。
+point.x = 120;
+
+//要素の追加も同様
+//object名.追加したいキー = 追加したい値;でプロパティを追加できる
+point.z = 400;
+console.log(point);
+
+//要素の削除はdeleteを使用する。
+//delete object名.key;で削除できる
+delete point.x;
+
+console.log(point);
