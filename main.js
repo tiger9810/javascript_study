@@ -13,19 +13,25 @@
 //     return 返したい値(返り値という);
 // }; ←;必要！！
 
-//引数にlet, constなどの宣言はいらない
-//テンプレートリテラルで引数を埋め込む
+//アロー関数を使用した省略記法ではfunctionを消して、=の後に直接引数を持ってくる
 
-const sum = function (a, b, c) {
-    console.log(a + b + c);
-};
-
-sum(1, 2, 4);
-sum(2, 4, 5);
-
-function sum2(a, b, c) {
+const sum1 = function (a, b, c) {
     return a + b + c;
 }
-//returnを使うと、関数の処理結果を値として扱える。
-//関数の最後にreturnで値を返すと、計算で使用できる
+
+//アロー関数を使用した省略記法
+const sum2 = (a, b, c) =>  a + b + c;
+
+console.log(sum1(3, 4, 5));
 console.log(sum2(3, 4, 5));
+
+//引数が一つの場合は()も省略できる。
+const double1 = function(a) {
+    return a * 2;
+}
+
+console.log(double1(2));
+
+const double2 = a => a * 2;
+
+console.log(double2(3));
