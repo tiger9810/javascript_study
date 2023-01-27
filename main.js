@@ -1,26 +1,24 @@
 'use strict';
 
-//object記法
-//キーと値を対応させて記述する。
-//keyと要素をまとめてプロパティという
-const point = {
-    x: 100, 
-    y: 300,
-};
+//objectのプロパティを列挙する
+//Object.keys(object名);objectのkeyをすべて配列で取得できる
+//取得したkeyの配列をforEach()でぶん回す
 
-//スプレッド構文もオブジェクトに対して使える
-const otherProps = {
-    r: 4,
-    color: 'red',
-    ...point,
-};
+//まずオブジェクトを用意
+const object = {
+    x: 100,
+    y: 200,
+    z: 300,
+}
 
-console.log(otherProps);
+//Object.keys()でkeyを取得
+const KeysArray = Object.keys(object);
+console.log(KeysArray);
 
-//分割代入もオブジェクトに使える
-//分割代入とは、配列の要素、またはオブジェクトのプロパティを一つ取り出して、定数とするときに使うやつである。
-//残りのオブジェクトに対してはレスト構文で新たにobjectを作成する
-const {x, r, ...remains} = otherProps;
-console.log(x);
-console.log(r);
-console.log(remains);
+//forEachで引数KeyにKeysArrayの要素を一つずつ代入していく
+//object名[key]の指定方法でvalueを指定する。
+KeysArray.forEach(Key => {
+    console.log(`key: ${Key}, value: ${object[Key]}`);
+});
+
+
