@@ -1,21 +1,16 @@
 'use strict';
-//省略記法
-let price = 500;
+//文字列　'hello' "世界"など
+//数値　4, 4.3, -20など。マイナスもOK
+//Undefined 定義されていないというデータ型
+//Null 値がないことを示す
+//真偽値 True, False 2値
+//オブジェクト keyとvalueの組み合わせ
 
-// price = price + 100;
-price += 100;
-console.log(price);
+//console.log(typeof 値);で値のデータ型がわかる
+//shift + alt + 下矢印で行コピー＆ペーストができる
 
-//price = price * 2;
-price *= 2;
-console.log(price);
-
-//price = price + 1;
-//price += 1;
-price++;
-console.log(price);
-
-//price =- 1;
-//price = price - 1;
-price--;
-console.log(price);
+console.log(typeof 'hello');
+console.log(typeof 5);
+console.log(typeof true);
+console.log(typeof undefined);
+console.log(typeof null);//objectと表示されるのは有名なjavascriptのバグ
