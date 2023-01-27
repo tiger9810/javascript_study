@@ -1,21 +1,11 @@
 'use strict';
 
-// if (条件式) {
-//     trueだった時の処理;
-// } else {
-//     falseだった時の処理;
-// }
-const score = 59;
+const score = 80;
+const name = 'tani';
 
-if (score >= 80) {
-    console.log('Great');
-
-} else {
-    console.log('Umm...');
+//2つの条件を一行で表せる。
+if (score >= 80 && name === 'tani') {
+    console.log('good');
 }
 
-// 条件演算子
-// 条件式 ? trueの処理 : falseの処理
-const value = 50;
-value >= 80 ? console.log("great") : console.log('Umm...');
-
+// && || !の三種類
