@@ -1,16 +1,10 @@
 'use strict';
-//文字列　'hello' "世界"など
-//数値　4, 4.3, -20など。マイナスもOK
-//Undefined 定義されていないというデータ型
-//Null 値がないことを示す
-//真偽値 True, False 2値
-//オブジェクト keyとvalueの組み合わせ
 
-//console.log(typeof 値);で値のデータ型がわかる
-//shift + alt + 下矢印で行コピー＆ペーストができる
+//15になる。文字列と数値でも計算できてしまう。
+console.log('5' * 3);
 
-console.log(typeof 'hello');
-console.log(typeof 5);
-console.log(typeof true);
-console.log(typeof undefined);
-console.log(typeof null);//objectと表示されるのは有名なjavascriptのバグ
+//2になる。String型でも数値として計算されてしまう。
+console.log('5' - '3');
+
+//足し算の場合、数値と文字列の組み合わせは文字列として処理される。つまり、53になる
+console.log('5' + 3);
