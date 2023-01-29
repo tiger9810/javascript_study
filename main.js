@@ -1,38 +1,45 @@
 'use strict';
 
-const str = 'hello';
+//数値計算に関する命令
 
-//文字数カウント.length。配列の要素数とかも取得できる。for文の時便利。forEach()あるけど、、、
-console.log(str.length);
+//配列の合計と平均を計算する。forEach()
+//まず計算するための配列の作成
+const array = [1, 2, 3, 4, 5, 6];
 
-//(定数)変数.substring(開始index, 終了index);開始から終了までの要素を取得する。取得したデータ型はstring.
-console.log(str.substring(2, 4));
-console.log(typeof(str.substring(2, 4)));
+//forEach()関数を使用して、配列の要素を1つずつ加算していく
+//forEach()の中では変数を宣言することはできないので、予め宣言しておく必要がある。
+let sum = 0;
+array.forEach(element => {
+    sum += element;
+});
 
-//文字列も配列と同じようにindexで文字を指定できる
-//だからといって、その位置に新しく値を設定できるわけではない。ただただ情報を取得できるだけ。
-console.log(str[1]);
+const ave = sum / array.length;
 
-//配列の要素を繋げて、一つの文字列にする.join('結合するときに使用する区切り文字');
-//配列.join('区切り文字');→文字列になる。
-const x = [1, 2, 3, 4, 5];
-const xString = x.join('$');
-console.log(xString);
+console.log(sum);
+console.log(ave);
 
-//文字列を区切って、配列変換する.split();
-//文字列.split('取り外す区切り文字')→配列になる。
-const xArray = xString.split('$');
-console.log(xArray);
-//分割代入を使用して、時間をhour、分をminute、秒をsecondという定数にする。
-const time =[3, 44, 52];
+//小数点以下を切り捨て→数値に対して操作Mathの関数
+//Math.floor(value);
+let kirisute = Math.floor(ave);
+console.log(kirisute);
 
-//.join()で時刻っぽく表示する。
-const t = time.join(':');
-console.log(t);
+//小数点切り上げ→数値に対して操作、Mathの関数
+//Math.ceil(value);
+let kiriage = Math.ceil(ave);
+console.log(kiriage);
 
-//分割代入は配列を定数で宣言して、そこに代入したい配列を入れる。
-const [hour, minute, second] = t.split(':');
+//四捨五入→数値に対して操作、Mathの関数
+//Math.round(value);
+let sisyagonyuu = Math.round(ave);
+console.log(sisyagonyuu);
 
-console.log(hour);
-console.log(minute);
-console.log(second);
+//小数点以下表示
+//こいつだけ、ドットタイプの命令、関数と命令があるってことか。関数は引数を必要とするけど、命令は実行する先を指定すればよい
+//変数名.toFixed(小数点何桁まで表示するか);
+let syousuutennika = ave.toFixed(3);//3桁まで表示
+console.log(syousuutennika);
+
+//乱数生成Math.random()
+//random()関数で生成した乱数をtoFixed()で2桁表示にする
+let random = Math.random().toFixed(2) * 100;
+console.log(random);
