@@ -1,37 +1,45 @@
 'use strict';
-//関数宣言
-// function 関数名(仮引数1, 仮引数2, ...) {
-//     処理;
-//     return 返したい値;
-// }
 
-//関数式(定数、変数に関数を入れる、メリットはわからない)
-//定数、変数に代入された関数を無名関数という
-//関数式の際にはブロック{}の最後に;を必要とする
-// const 定数名 = function(仮引数1, 仮引数2, ...) {
-//     処理;
-//     return 返したい値(返り値という);
-// }; ←;必要！！
+//数値計算に関する命令
 
-//アロー関数を使用した省略記法ではfunctionを消して、=の後に直接引数を持ってくる
+//配列の合計と平均を計算する。forEach()
+//まず計算するための配列の作成
+const array = [1, 2, 3, 4, 5, 6];
 
-const sum1 = function (a, b, c) {
-    return a + b + c;
-}
+//forEach()関数を使用して、配列の要素を1つずつ加算していく
+//forEach()の中では変数を宣言することはできないので、予め宣言しておく必要がある。
+let sum = 0;
+array.forEach(element => {
+    sum += element;
+});
 
-//アロー関数を使用した省略記法
-const sum2 = (a, b, c) =>  a + b + c;
+const ave = sum / array.length;
 
-console.log(sum1(3, 4, 5));
-console.log(sum2(3, 4, 5));
+console.log(sum);
+console.log(ave);
 
-//引数が一つの場合は()も省略できる。
-const double1 = function(a) {
-    return a * 2;
-}
+//小数点以下を切り捨て→数値に対して操作Mathの関数
+//Math.floor(value);
+let kirisute = Math.floor(ave);
+console.log(kirisute);
 
-console.log(double1(2));
+//小数点切り上げ→数値に対して操作、Mathの関数
+//Math.ceil(value);
+let kiriage = Math.ceil(ave);
+console.log(kiriage);
 
-const double2 = a => a * 2;
+//四捨五入→数値に対して操作、Mathの関数
+//Math.round(value);
+let sisyagonyuu = Math.round(ave);
+console.log(sisyagonyuu);
 
-console.log(double2(3));
+//小数点以下表示
+//こいつだけ、ドットタイプの命令、関数と命令があるってことか。関数は引数を必要とするけど、命令は実行する先を指定すればよい
+//変数名.toFixed(小数点何桁まで表示するか);
+let syousuutennika = ave.toFixed(3);//3桁まで表示
+console.log(syousuutennika);
+
+//乱数生成Math.random()
+//random()関数で生成した乱数をtoFixed()で2桁表示にする
+let random = Math.random().toFixed(2) * 100;
+console.log(random);
