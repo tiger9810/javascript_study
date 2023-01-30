@@ -2,10 +2,12 @@
 //日時に関する命令
 
 //現在時刻の取得　new Date();
-
+//実行環境のタイムゾーンに依存
+const d = new Date();
+console.log(d);
 
 //年の取得 d.getFullYear();
-
+console.log(`${d.getMonth() + 1}月 ${d.getDate()} 日`);
 
 //月の取得、d.getMonth();
 
