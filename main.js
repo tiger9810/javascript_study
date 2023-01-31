@@ -1,20 +1,17 @@
 'use strict';
-//日時に関する命令
 
-//現在時刻の取得　new Date();
-//現在日時をconsoleに表示する関数
-// const showTime = () => {
-//     return console.log(new Date());
-// }
-let i = 0;
-function showTime() {
-    console.log(new Date());
-    i++;
-    const timeOutId = setTimeout(showTime, 1000);
-    if (i > 2) {
-        clearTimeout(timeOutId);
-    }
+//ユーザーから名前を受け取って、大文字にする処理.toUpperCase()は文字列しか受け取れない
+// const name = 'tiger98';
+const name = 98;
+//文字列以外だった場合の処理
+//例外が起きそうな個所をtry()で囲ってあげる
+try {
+    console.log(name.toUpperCase());
+} catch (e){
+    console.log(e)
 }
-//設定した時間の後に1度だけ処理を実行する命令setTimeout(関数, ミリ秒)
-showTime();
-//clearTimeout()でsetTimeout()が止まる
+
+//try{}catch{}で囲っていれば、finishまで表示できる
+console.log('finish!!');
+//catchで例外が起きた後の処理を{}に記述する
+//catch(e)、(e)を引数にとると、error情報を引数eに格納できる
