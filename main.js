@@ -10,13 +10,11 @@ let i = 0;
 function showTime() {
     console.log(new Date());
     i++;
+    const timeOutId = setTimeout(showTime, 1000);
+    if (i > 2) {
+        clearTimeout(timeOutId);
+    }
 }
-
-//setInterval(1秒毎に表示したい関数, 時間をミリ秒で指定)を使用して1秒ごとに表示させる
-// setInterval((showTime), 1000);
-//関数を引数として渡す場合は、かっこをつけない
-if (i > 2){
-    //setIntervalを止める処理clearInterval(止めたい関数を格納した定数)
-    clearInterval(showTime);
-}
-const intervalId = setInterval(showTime, 1000);
+//設定した時間の後に1度だけ処理を実行する命令setTimeout(関数, ミリ秒)
+showTime();
+//clearTimeout()でsetTimeout()が止まる
