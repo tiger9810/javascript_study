@@ -1,33 +1,6 @@
 'use strict';
 
 //SNSのいいねと投稿の要素を持つを持つobjectを作成する
-const posts = [
-    {
-        text: 'hello',
-        likeCount: 0,
-        //メソッドとして定義するときはfunctionいらない
-        show() {
-            //同じオブジェクト内のプロパティはthisで表現できる。ここではposts[0]=thisという感じ
-            console.log(`${this.text}のいいね数は${post.likeCount}です`);
-        }
-    },
-    {
-        text: '2nd post!',
-        likeCount: 1,
-        show() {
-            console.log(`${this.text}:likeCount${this.likeCount}`)
-        }
-    },
-];
-
-//オブジェクト内で定義するとメソッドと呼ばれる
-function show(post) {
-    console.log(`${post.text}のいいね数は${post.likeCount}です`);
-}
-
-// show(posts[1]);
-//オブジェクト.関数で呼び出せる
-posts[1].show();
 
 //postsのテンプレートをクラス、クラスから作ったオブジェクトをインスタンスという
 
@@ -46,6 +19,10 @@ class Posts {
     show() {
         console.log(`${this.text}'s likecount: ${this.likeCount}`);
     }
+    like() {
+        this.likeCount++;
+        this.show();
+    }
 
 }
 
@@ -58,3 +35,6 @@ const posts2 = [
 ];
 
 posts2[0].show();
+posts2[0].like();
+//posts2[0].likeCount++:ではなくて、like()メソッドを使用するのが推奨
+posts2[1].show();
