@@ -11,4 +11,10 @@ document.querySelector('button').addEventListener('click', () => {
     const targetNode = document.getElementById('target');
     targetNode.textContent = 'Content was Changed by getElementById';
     targetNode.title = 'title was Changed by getElementById';
+
+    //clickしたらCssがid='target'に適用されるようにする
+    //まずid='target'にclass='my-color'を追加する
+    // targetNode.className = 'my-color';         //←my-borderを上書きするため、my-borderのCSSが適用されなくなる
+    //元からついているclass属性も反映させたい場合は、2つ指定する
+    targetNode.className = 'my-color my-border';
 });
