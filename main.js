@@ -9,9 +9,14 @@ document.querySelector('button').addEventListener('click', () => {
     const targetNode = document.getElementById('target');
     targetNode.textContent = 'Content was Changed by getElementById';
     targetNode.title = 'title was Changed by getElementById';
-//クリックすると和訳が表示されるようにする
-    // targetNode.textContent = 'こんにちは　世界！'
-    //target属性を指定するのではなく、data-から始まるカスタムデータ属性を指定してみる
-    //指定したカスタムデータ属性に代入している文字列がid=targetのp要素に代入される
-    targetNode.textContent = targetNode.dataset.translation;
+//リストの要素を追加する
+//まずli要素を追加する。document.createElement('要素名')
+    const item2 = document.createElement('li');
+//中身のテキストを設定する
+    item2.textContent = 'hello world again!!!!!'
+//DOMツリーに追加する（親要素に対して子要素となるものの末尾に追加する）
+    //親要素であるul要素を取得する。要素を取得できるquerySelectorを使う
+    const parentUl = document.querySelector('ul');
+    //append=付けるという意味の.appendChildで親要素に子要素を追加する。
+    parentUl.appendChild(item2);
 });
