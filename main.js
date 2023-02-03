@@ -1,18 +1,24 @@
 'use strict';
 
-//ダブルクリックした時のイベントdblclick
-document.getElementById('checkButton').addEventListener('dblclick', () => {
-    console.log('dbclicked!')
+const text = document.querySelector('textarea');
+//テキストエリアにマウスフォーカスすると発生するイベント
+text.addEventListener('focus', () => {
+    console.log('focus');
 });
 
-//マウスを動かしたときのイベント
-//イベント指定後のかっこに引数を渡せば、座標が得られる
-//この引数はイベントオブジェクトと呼ばれる
-//引数はよくeとなる
-document.addEventListener('mousemove', e => {
-console.log(e.clientX, e.clientY);
+//テキストエリア以外にマウスクリックすると発生するイベント
+text.addEventListener('blur', () => {
+    console.log('blur');
 });
-document.addEventListener('keydown', e => {
-console.log(e.key);
+
+//テキストエリアに文字を入力したときに発生するイベント
+text.addEventListener('input', () => {
+    console.log('input');
+    console.log(text.value.length);
+});
+
+
+text.addEventListener('change', () => {
+    console.log('change');
 });
 
